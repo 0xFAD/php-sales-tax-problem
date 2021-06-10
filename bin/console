@@ -1,0 +1,17 @@
+#!/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use SalesTax\Command\PrintShoppingBasketCommand;
+
+$application = new Application('Sales Tax Problem');
+$application->add(new PrintShoppingBasketCommand());
+
+try {
+    $application->run();
+
+} catch (Exception $e) {
+    exit($e->getMessage());
+}
